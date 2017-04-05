@@ -1,0 +1,22 @@
+- defaults:
+    link:
+        relink: true
+        force: true
+        create: true
+
+- clean: ['~']
+
+- link:
+    ~/.bash_aliases: "bash/.bash_aliases"
+    ~/.bash_env_vars: "bash/.bash_env_vars"
+    ~/.bash_profile: "bash/.bash_profile"
+    ~/.bashrc: "bash/.bashrc"
+    ~/.bashrc_root: "bash/.bashrc_root"
+    ~/.git-completion.bash: "git/.git-completion.bash"
+    ~/.git-prompt.sh: "git/.git-prompt.sh"
+    ~/.gitconfig: "git/.gitconfig"
+    ~/.ssh/config: "ssh/config"
+    ~/.tmux.conf: "tmux/.tmux.conf"
+    ~/.tmux-osx.conf: "tmux/.tmux-osx.conf"
+    ~/.vimrc: "vim/.vimrc"
+    ~/.vim/colors: "vim/colors"
