@@ -1,0 +1,79 @@
+################################
+# Set Default Editor
+
+export EDITOR='vim'
+
+
+################################
+# Heroku Toolbelt
+
+export PATH="/usr/local/heroku/bin:$PATH"
+
+
+################################
+# VirtualEnvWrapper
+
+export PROJECT_HOME=~/projects
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+
+################################
+# Git Completion
+# Check out github.com/git/git, then search by tags to find the version that
+# matches the one that you use. Drill down through contrib/completion/ and
+# grab the contents of git-completion.bash. This data goes into the
+# ~/.git-completion.bash file that we source below.
+
+source ~/.git-completion.bash
+
+
+################################
+# Prompt Customizations (from CF)
+
+source ~/.git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUPSTREAM="auto"
+Color_Off="\[\033[0m\]"
+Yellow="\[\033[0;33m\]"
+PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+[$Yellow`basename $VIRTUAL_ENV`$Color_Off]\n}" "${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ " "[%s]\n"'
+
+
+###############################
+# DrJava / Algs4
+
+export PATH=$PATH:$HOME/algs4/bin
+
+
+###############################
+# TheFuck
+
+eval "$(thefuck --alias)"
+
+
+###############################
+# Golang
+
+export GOROOT='/usr/local/Cellar/go/1.8/libexec'
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
+export adventdir="/Users/tanner/go/src/github.com/tlake/advent-of-code"
+
+
+###############################
+# XFRA
+
+export xfradir="/Users/tanner/go/src/gitlab.imshealth.com/xfra"
+export l0dir="$xfradir/layer0"
+export qimsossdir="/Users/tanner/go/src/github.com/quintilesims"
+export l0ossdir="$qimsossdir/layer0"
+
+
+###############################
+# Homebrew
+
+export HOMEBREW_GITHUB_API_TOKEN="422610c1882913072f540f6e2f0b98477987c0c5"

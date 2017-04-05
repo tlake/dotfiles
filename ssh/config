@@ -1,0 +1,29 @@
+Host tannerjlake ec2-54-245-145-203.us-west-2.compute.amazonaws.com
+    HostName ec2-54-245-145-203.us-west-2.compute.amazonaws.com
+    IdentityFile ~/.ssh/KeepHair.pem
+    RemoteForward 52698 localhost:52698
+    User ubuntu
+
+Host rpi 98.203.235.141
+    HostName 98.203.235.141
+    IdentityFile ~/.ssh/rpi_rsa
+    RemoteForward 52698 localhost:52698
+    User pi
+    Port 31415
+
+Host sleeper 52.26.172.232
+    HostName 52.26.172.232
+    IdentityFile ~/.ssh/sleeper_rsa
+    RemoteForward 52698 localhost:52698
+    User ubuntu
+
+host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/tannerdotlakeatgmaildotcom_rsa
+    User git
+
+host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlabdotcom_rsa
+    IdentitiesOnly yes
+    User git
