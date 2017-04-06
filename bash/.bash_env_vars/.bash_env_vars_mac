@@ -77,3 +77,11 @@ export l0ossdir="$qimsossdir/layer0"
 # Homebrew
 
 export HOMEBREW_GITHUB_API_TOKEN="422610c1882913072f540f6e2f0b98477987c0c5"
+
+
+################
+# pyenv
+################
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
