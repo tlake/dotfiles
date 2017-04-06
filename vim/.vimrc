@@ -1,11 +1,10 @@
-" Settings I've defined myself:
-
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
 syntax on
 filetype plugin indent on
 
 set number
-" set relativenumber
 set cursorline
 set tabstop=4
 set shiftwidth=4
