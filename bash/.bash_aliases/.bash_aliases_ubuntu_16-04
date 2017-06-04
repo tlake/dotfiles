@@ -215,7 +215,7 @@ alias kb="keybase"
 # layer0
 ################################
 
-alias l0env="echo '>>> exporting env vars for tlakedev layer0'; eval $(l0-setup endpoint -di tlakedev)"
+alias l0env="echo '>>> exporting env vars for tlakedev layer0'; eval $'(l0-setup endpoint -di tlakedev)'"
 alias l0envskipssl='export LAYER0_SKIP_VERSION_VERIFY="1" ; l0env'
 
 
