@@ -20,7 +20,7 @@ alias la='l -A'
 # tree
 ################################
 
-alias tree="tree -C"
+alias tree="tree -CalL 2"
 
 
 ################################
@@ -215,8 +215,42 @@ alias kb="keybase"
 # layer0
 ################################
 
-alias l0env="echo '>>> exporting env vars for tlakedev layer0'; eval $(l0-setup endpoint -di tlakedev)"
-alias l0envskipssl='export LAYER0_SKIP_VERSION_VERIFY="1" ; l0env'
+alias l0env="source ~/scripts/terminal_setup_docker.sh; source ~/scripts/terminal_setup_layer0.sh; export LAYER0_SKIP_VERSION_VERIFY='1'"
+
+
+################################
+# tmux
+################################
+
+alias tm="tmux"
+alias tmls="tmux list-sessions"
+alias tma="tmux attach -t"
+alias tmn="tmux new-session"
+alias tmk="tmux kill-session -t"
+
+tminit() {
+    if [ -z $1 ]; then
+        echo "${FUNCNAME}(): No args given."
+        echo "USAGE: ${FUNCNAME} session-name number-of-sessions"
+        echo "       (session-name required, number-of-sessions optional)"
+    elif [ -z $2 ]; then
+        tmux new-session -s $1 -d
+        if [ $? -eq 0 ]; then
+            echo "${FUNCNAME}(): Created session '$1'"
+        fi
+    else
+        tmux new-session -s "$1"1 -d
+        if [ $? -eq 0 ]; then
+            echo "${FUNCNAME}(): Created session '${1}1'"
+        fi
+        for ((n=2;n<=$2;n++)); do
+            tmux new-session -s "$1""$n" -t "$1"1 -d
+            if [ $? -eq 0 ]; then
+                echo "${FUNCNAME}(): Created session '${1}${n}'"
+            fi
+        done
+    fi
+}
 
 
 ################################
