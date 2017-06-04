@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 syntax on
 filetype plugin indent on
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set number
 set cursorline
@@ -14,10 +15,15 @@ set background=dark
 colorscheme monokai
 set linebreak
 set mouse=a
+let g:gitgutter_max_signs=9999
 
-set statusline+=%F
+set laststatus=2
+set statusline=%f
 
 let mapleader = ","
+
+nmap =j :%!python -m json.tool<CR>
+vnoremap <C-n> :norm
 
 " Mappings for Nate's write.vim
 noremap <leader>w :Write
@@ -114,7 +120,8 @@ vnoremap <tab> %
 
 " The next section makes Vim handle long lines correctly:
 set wrap
-set textwidth=79
+set textwidth=0
+set wrapmargin=0
 set formatoptions=qrn1
 " set colorcolumn=85
 highlight ColorColumn ctermbg=Black
