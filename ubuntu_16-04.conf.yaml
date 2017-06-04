@@ -35,7 +35,7 @@
         stderr: true
     -
         description: "\nGet some pyenv...\n   "
-        command: mkdir -p ~/.pyenv; shopt -s dotglob; cp -r python/pyenv/* ~/.pyenv/; cp -r python/pyenv-virtualenv/* ~/.pyenv/plugins/; source ~/.bashrc; pyenv install --skip-existing 3.6.1; pyenv global 3.6.1
+        command: mkdir -p ~/.pyenv; shopt -s dotglob; cp -r python/pyenv/* ~/.pyenv/; cp -r python/pyenv-virtualenv ~/.pyenv/plugins/; source ~/.bashrc; pyenv install --skip-existing 3.6.1; pyenv global 3.6.1
         stdin: true
         stdout: true
         stderr: true
