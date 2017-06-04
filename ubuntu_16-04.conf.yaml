@@ -29,7 +29,7 @@
         stderr: true
     -
         description: "\nInstall python deps...\n   "
-        command: sudo apt install --yes libbz2-dev libreadline-dev libssl-dev libsqlite3-dev python-dev python3-dev zlib1g-dev
+        command: sudo apt install --yes libbz2-dev libreadline-dev libssl-dev libsqlite3-dev python-dev python3-dev zlib1g-dev python-pkg-resources
         stdin: true
         stdout: true
         stderr: true
