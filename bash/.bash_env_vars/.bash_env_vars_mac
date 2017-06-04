@@ -37,9 +37,11 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
-Color_Off="\[\033[0m\]"
+ColorOff="\[\033[0m\]"
 Yellow="\[\033[0;33m\]"
-PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+[$Yellow`basename $VIRTUAL_ENV`$Color_Off]\n}" "${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ " "[%s]\n"'
+BoldGreen="\[\033[01;32m\]"
+BoldBlue="\[\033[01;34m\]"
+PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+[$Yellow`basename $VIRTUAL_ENV`$ColorOff]\n}" "${debian_chroot:+($debian_chroot)}$BoldGreen\u@\h$ColorOff:$BoldBlue\w$ColorOff\$ " "[%s]\n"'
 
 
 ###############################
@@ -69,7 +71,7 @@ export adventdir="/Users/tanner/go/src/github.com/tlake/advent-of-code"
 
 export xfradir="/Users/tanner/go/src/gitlab.imshealth.com/xfra"
 export l0dir="$xfradir/layer0"
-export qimsossdir="/Users/tanner/go/src/github.com/quintilesims"
+export quimsdir="/Users/tanner/go/src/github.com/quintilesims"
 export l0ossdir="$qimsossdir/layer0"
 
 
@@ -79,9 +81,18 @@ export l0ossdir="$qimsossdir/layer0"
 export HOMEBREW_GITHUB_API_TOKEN="422610c1882913072f540f6e2f0b98477987c0c5"
 
 
-################
-# pyenv
-################
+###############################
+# Ansible
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export ANSIBLE_HOSTS="$HOME/ansible/hosts"
+
+
+################################
+# pyenv
+################################
+
+# disabled since pyenv is installed with homebrew
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+
