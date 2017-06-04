@@ -12,10 +12,11 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ################################
 # VirtualEnvWrapper
+# (disabled due to pyenv preference)
 
-export PROJECT_HOME=~/projects
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export PROJECT_HOME=~/projects
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
 
 
 ################################
