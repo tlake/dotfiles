@@ -8,7 +8,7 @@
 
 - link:
     ~/.bash_aliases: "bash/.bash_aliases/.bash_aliases_ubuntu_16-04"
-    ~/.bash_env_vars: "bash/.bash_env_vars"
+    ~/.bash_env_vars: "bash/.bash_env_vars/.bash_env_vars_ubuntu_16-04"
     ~/.bash_profile: "bash/.bash_profile"
     ~/.bashrc: "bash/.bashrc"
     ~/.bashrc_root: "bash/.bashrc_root"
