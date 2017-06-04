@@ -1,14 +1,14 @@
 - defaults:
     link:
         relink: true
-        force: true
         create: true
+        force: true
 
 - clean: ['~']
 
 - link:
-    ~/.bash_aliases: "bash/.bash_aliases"
-    ~/.bash_env_vars: "bash/.bash_env_vars"
+    ~/.bash_aliases: "bash/.bash_aliases/.bash_aliases_mac"
+    ~/.bash_env_vars: "bash/.bash_env_vars/.bash_env_vars_mac"
     ~/.bash_profile: "bash/.bash_profile"
     ~/.bashrc: "bash/.bashrc"
     ~/.bashrc_root: "bash/.bashrc_root"
@@ -19,4 +19,41 @@
     ~/.tmux.conf: "tmux/.tmux.conf"
     ~/.tmux-osx.conf: "tmux/.tmux-osx.conf"
     ~/.vimrc: "vim/.vimrc"
-    ~/.vim/colors: "vim/colors"
+    ~/.vim/colors: "vim/.vim/colors"
+
+- shell:
+  -
+    description: "\nInstall submodules...\n   "
+    command: git submodule update --init --recursive
+    stdin: true
+    stdout: true
+    stder: true
+
+  -
+    description: "\nGet some homebrew...\n   "
+    command: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; brew update
+    stdin: true
+    stdout: true
+    stderr: true
+
+  -
+    description: "\nInstall brew programs...\n   "
+    command: brew install asciiquarium cmatrix cowsay git-standup go pianobar pyenv pyenv-virtualenv thefuck the_silver_searcher tmux tree vim
+    stdin: true
+    stdout: true
+    stderr: true
+
+  -
+    description: "\nConfigure some pyenv...\n   "
+    command: pyenv install --skip-existing 3.6.1; pyenv global 3.6.1
+    stdin: true
+    stdout: true
+    stderr: true
+
+  -
+    description: "\nConfigure some golang...\n   "
+    command: mkdir -p $GOPATH
+    stdin: true
+    stdout: true
+    stderr: true
+
