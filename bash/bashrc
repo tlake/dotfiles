@@ -97,6 +97,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_aliases_extension ]; then
+    . ~/.bash_aliases_extension
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,12 +120,18 @@ if [ -f ~/.aws_locations ]; then
     . ~/.aws_locations
 fi
 
+
 ################################
 # Source bash_env_vars File
 ################################
 if [ -f ~/.bash_env_vars ]; then
     . ~/.bash_env_vars
 fi
+
+if [ -f ~/.bash_env_vars_extension ]; then
+    . ~/.bash_env_vars_extension
+fi
+
 
 ###############################
 # Django Environ File
@@ -130,8 +140,10 @@ if [ -f ~/.django_environ ]; then
     . ~/.django_environ
 fi
 
+
 ###############################
 # Pyenv Init
 ###############################
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+

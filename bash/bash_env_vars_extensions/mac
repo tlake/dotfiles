@@ -1,0 +1,15 @@
+################################
+# golang
+################################
+
+export GOROOT='/usr/local/Cellar/go/1.8/libexec'
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
+
+################################
+# homebrew
+################################
+
+export HOMEBREW_GITHUB_API_TOKEN="422610c1882913072f540f6e2f0b98477987c0c5"
+

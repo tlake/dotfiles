@@ -7,11 +7,13 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_aliases: "bash/.bash_aliases_ubuntu_14-04_and_earlier"
-    ~/.bash_env_vars: "bash/.bash_env_vars"
-    ~/.bash_profile: "bash/.bash_profile"
-    ~/.bashrc: "bash/.bashrc"
-    ~/.bashrc_root: "bash/.bashrc_root"
+    ~/.bash_aliases: "bash/bash_aliases"
+    ~/.bash_aliases_extension: "bash/bash_aliases_extensions/ubuntu_14-04"
+    ~/.bash_env_vars: "bash/bash_env_vars"
+    ~/.bash_env_vars_extension: "bash/bash_env_vars_extensions/ubuntu_14-04"
+    ~/.bash_profile: "bash/bash_profile"
+    ~/.bashrc: "bash/bashrc"
+    ~/.bashrc_root: "bash/bashrc_root"
     ~/.git-completion.bash: "git/.git-completion.bash"
     ~/.git-prompt.sh: "git/.git-prompt.sh"
     ~/.gitconfig: "git/.gitconfig"
