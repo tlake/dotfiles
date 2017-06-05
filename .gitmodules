@@ -22,3 +22,6 @@
 [submodule "python/pyenv-virtualenv"]
 	path = python/pyenv-virtualenv
 	url = https://github.com/pyenv/pyenv-virtualenv.git
+[submodule "vim/.vim/bundle/vim-terraform"]
+	path = vim/.vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
