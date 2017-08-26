@@ -3,7 +3,13 @@ execute pathogen#infect()
 
 syntax on
 filetype plugin indent on
+
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" pymode options
+let g:pymode_lint_ignore = "E501, E0100"
+let g:pymode_python = "python"
+let g:pymode_options_colorcolumn = 0
 
 set number
 set cursorline
@@ -59,7 +65,7 @@ set scrolloff=5
 set autoindent
 set showmode
 set showcmd
-set hidden
+" set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
