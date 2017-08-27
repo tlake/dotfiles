@@ -71,9 +71,16 @@ eval "$(thefuck --alias)"
 ################################
 
 export xfradir="/Users/tanner/go/src/gitlab.imshealth.com/xfra"
-export l0dir="$xfradir/layer0"
-export quimsdir="/Users/tanner/go/src/github.com/quintilesims"
-export l0ossdir="$qimsossdir/layer0"
+export legacyl0dir="${xfradir}/layer0"
+export qimsdir="/Users/tanner/go/src/github.com/quintilesims"
+export l0dir="${qimsdir}/layer0"
+
+
+################################
+# terraform
+################################
+
+export terraformdir="/usr/local/Cellar/terraform/0.9.6/bin"
 
 
 ################################
