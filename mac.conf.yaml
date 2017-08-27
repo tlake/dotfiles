@@ -14,6 +14,7 @@
     ~/.bash_profile: "bash/bash_profile"
     ~/.bashrc: "bash/bashrc"
     ~/.bashrc_root: "bash/bashrc_root"
+    ~/.elinks/elinks.conf: "elinks/elinks.conf"
     ~/.git-completion.bash: "git/.git-completion.bash"
     ~/.git-prompt.sh: "git/.git-prompt.sh"
     ~/.gitconfig: "git/.gitconfig"
@@ -40,7 +41,7 @@
 
   -
     description: "\nInstall brew programs...\n   "
-    command: brew install asciiquarium cmatrix cowsay git-standup go pianobar pyenv pyenv-virtualenv thefuck the_silver_searcher tmux tree vim
+    command: brew install asciiquarium cmatrix cowsay elinks git-standup go pianobar pyenv pyenv-virtualenv thefuck the_silver_searcher tmux tree vim
     stdin: true
     stdout: true
     stderr: true
