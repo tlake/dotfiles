@@ -187,6 +187,8 @@ alias kb="keybase"
 ################################
 
 alias l0env="source ~/scripts/terminal_setup_docker.sh; source ~/scripts/terminal_setup_layer0.sh; export LAYER0_SKIP_VERSION_VERIFY='1'"
+alias l0_use_dev="sudo ln -sf /Users/tanner/go/src/github.com/quintilesims/layer0/cli/l0 /usr/local/bin/l0 && sudo ln -sf /Users/tanner/go/src/github.com/quintilesims/layer0/setup/l0-setup /usr/local/bin/l0-setup"
+alias l0_use_release="sudo ln -sf /Users/tanner/layer0/release/l0 /usr/local/bin/l0 && sudo ln -sf /Users/tanner/layer0/release/l0-setup /usr/local/bin/l0-setup"
 
 
 ################################
