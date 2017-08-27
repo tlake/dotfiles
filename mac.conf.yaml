@@ -21,7 +21,7 @@
     ~/.tmux.conf: "tmux/.tmux.conf"
     ~/.tmux-osx.conf: "tmux/.tmux-osx.conf"
     ~/.vimrc: "vim/.vimrc"
-    ~/.vim/colors: "vim/.vim/colors"
+    ~/.vim: "vim/.vim"
 
 - shell:
   -
