@@ -1,66 +1,48 @@
 [alias]
-    # checking out
-    k = checkout
+    a = add
+    aa = add -A
 
-    # cloning
-    cl = clone
-
-    # status
-    s = status
-    d = diff
     b = branch
     ba = branch -a
 
-    # fetching
+    cl = clone
+
+    c = commit
+    cm = commit -m
+
+    d = diff
+
     f = fetch
     fa = fetch --all
+    fap = fetch --all --prune
 
-    # pulling
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+    k = checkout
+
     l = pull
     lo = pull origin
     lom = pull origin master
 
-    # adding
-    a = add
-    aa = add -A
-
-    # committing
-    c = commit
-    cm = commit -m
-
-    # pushing
     p = push
     po = push origin
     pom = push origin master
 
-    # rebasing
-    rb = rebase
-
-    # resetting
     r = reset
     rh = reset --hard
     rhom = reset --hard origin/master
     rhod = reset --hard origin/dev
 
-    # single command to reset current repo to origin/master
-    rm = !git fetch --all && git reset --hard origin/master
+    rb = rebase
+    rbi = rebase -i
 
-    # single command to do the same for origin/dev
-    rd = !git fetch --all && git reset --hard origin/dev
+    s = status
+
+    # remove local branches that no longer exist remotely
+    sync = "!git fetch --all --prune && for b in $(git branch -vv | awk '/: gone]/{print $1}') ; do echo 'Deleting branch $b' ; git branch -d $b ; done"
 
     # Laura's
     throwitallaway = "!f(){ git reset --hard HEAD && git clean -fd; };f"
-    badapple = "! files=(./*);"\
-                "randfile=\"${files[RANDOM % ${#files[@]}]}\";"\
-                "echo \"BOO!!\" >> $randfile;"\
-                "git reset --soft HEAD;"\
-                "git add $randfile;"\
-                "git commit -m \"OH NO THIS COMMIT SHOULD NOT BE HERE\";"\
-                "echo \"\n\noh dear, something seems to have been committed by mistake...\n\n\";"
-
-    st = status
-    br = branch
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
     alias=!git config --list | grep alias
 
     # Creates a zipped file of the whole repo (git history included) one level up from the current directory
@@ -72,7 +54,9 @@
 [user]
     name = Tanner Lake
     email = tanner.lake@gmail.com
+
 [core]
     editor=vim
+
 [rerere]
 	enabled = true
