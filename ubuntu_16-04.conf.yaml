@@ -30,7 +30,6 @@
         stdin: true
         stdout: true
         stder: true
-
     -
         description: "\nInstall submodules...\n   "
         command: git submodule update --init --recursive
@@ -45,22 +44,28 @@
         stderr: true
     -
         description: "\nGet some pyenv...\n   "
-        command: mkdir -p ~/.pyenv; shopt -s dotglob; cp -r python/pyenv/* ~/.pyenv/; cp -r python/pyenv-virtualenv ~/.pyenv/plugins/; source ~/.bashrc; pyenv install --skip-existing 3.6.1; pyenv global 3.6.1
+        command: mkdir -p ~/.pyenv && shopt -s dotglob && cp -r python/pyenv/* ~/.pyenv/ && cp -r python/pyenv-virtualenv ~/.pyenv/plugins/ && source ~/.bashrc && pyenv install --skip-existing 3.6.1 && pyenv global 3.6.1
         stdin: true
         stdout: true
         stderr: true
     -
         description: "\nGet some golang...\n   "
-        command: sudo add-apt-repository --update --yes ppa:longsleep/golang-backports; sudo apt install --yes golang-go; mkdir -p $GOPATH
+        command: sudo add-apt-repository --update --yes ppa:longsleep/golang-backports && sudo apt install --yes golang-go && mkdir -p $GOPATH
         stdin: true
         stdout: true
         stderr: true
     -
         description: "\nInstall apt programs...\n   "
-        command: sudo apt update; sudo apt upgrade; sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim 
+        command: sudo apt update && sudo apt upgrade && sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim
         stdin: true
         stdout: true
         stderr: true
+    -
+        description: "\nClean up after apt...\n   "
+        command: sudo apt autoremove --yes
+        stdin: true
+        stdout: true
+        stder: true
     -
         description: "\nInstall other programs...\n   "
         command: sudo make -C git/git-standup/ install
