@@ -28,3 +28,9 @@
 [submodule "vim/.vim/bundle/vim-buftabline"]
 	path = vim/.vim/bundle/vim-buftabline
 	url = https://github.com/ap/vim-buftabline
+[submodule "vim/.vim/bundle/python-mode"]
+    path = vim/.vim/bundle/python-mode
+    url = https://github.com/python-mode/python-mode.git
+[submodule "vim/.vim/bundle/vim/.vim/bundle/python-mode"]
+	path = vim/.vim/bundle/vim/.vim/bundle/python-mode
+	url = https://github.com/python-mode/python-mode.git
