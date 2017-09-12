@@ -26,6 +26,13 @@
 
 - shell:
   -
+    description: "\nCreate vim undo file...\n   "
+    command: touch $HOME/.vim/undo
+    stdin: true
+    stdout: true
+    stder: true
+
+  -
     description: "\nInstall submodules...\n   "
     command: git submodule update --init --recursive
     stdin: true

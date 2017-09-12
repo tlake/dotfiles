@@ -7,9 +7,19 @@ filetype plugin indent on
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " pymode options
-let g:pymode_lint_ignore = "E501, E0100"
+let g:pymode_lint_ignore = "E501,E0100"
 let g:pymode_python = "python"
 let g:pymode_options_colorcolumn = 0
+let g:pymode_folding = 0
+
+" Keep undo after buffer switch
+set hidden
+
+" Persistent undo
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 set number
 set cursorline
@@ -23,13 +33,19 @@ set linebreak
 set mouse=a
 let g:gitgutter_max_signs=9999
 
+" Use H and L to switch buffers
+map H :bp<Return>
+map L :bn<Return>
+
+" Use J and K for old H and L behavior
+
 set laststatus=2
 set statusline=%f
 
 let mapleader = ","
 
 nmap =j :%!python -m json.tool<CR>
-vnoremap <C-n> :norm
+vnoremap <C-n> :norm<Space>
 
 " Mappings for Nate's write.vim
 noremap <leader>w :Write
