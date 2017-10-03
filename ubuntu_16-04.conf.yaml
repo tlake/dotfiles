@@ -13,13 +13,14 @@
     ~/.bash_env_vars_extension: "bash/bash_env_vars_extensions/ubuntu_16-04"
     ~/.bash_profile: "bash/bash_profile"
     ~/.bashrc: "bash/bashrc"
-    ~/.bashrc_root: "bash/bashrc_root"
+    ~/.bashrc_extension: "bash/bashrc_extensions/ubuntu_16-04"
     ~/.elinks/elinks.conf: "elinks/elinks.conf"
     ~/.git-completion.bash: "git/.git-completion.bash"
     ~/.git-prompt.sh: "git/.git-prompt.sh"
     ~/.gitconfig: "git/.gitconfig"
     ~/.ssh/config: "ssh/config"
     ~/.tmux.conf: "tmux/.tmux.conf"
+    ~/.tmux-linux.conf: "tmux/.tmux-ubuntu-16-04.conf"
     ~/.vimrc: "vim/.vimrc"
     ~/.vim: "vim/.vim"
 
@@ -33,6 +34,12 @@
     -
         description: "\nInstall submodules...\n   "
         command: git submodule update --init --recursive
+        stdin: true
+        stdout: true
+        stderr: true
+    -
+        description: "\nUpdate and upgrade apt...\n   "
+        command: sudo apt update --yes && sudo apt upgrade --yes
         stdin: true
         stdout: true
         stderr: true
@@ -56,7 +63,7 @@
         stderr: true
     -
         description: "\nInstall apt programs...\n   "
-        command: sudo apt update && sudo apt upgrade && sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim
+        command: sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim-gnome xclip
         stdin: true
         stdout: true
         stderr: true
