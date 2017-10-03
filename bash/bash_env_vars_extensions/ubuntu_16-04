@@ -7,6 +7,16 @@ export PATH=$PATH:$GOPATH/bin
 
 
 ################################
+# carbon
+################################
+
+export xfradir="${GOPATH}/src/gitlab.imshealth.com/xfra"
+export legacyl0dir="${xfradir}/layer0"
+export qimsdir="${GOPATH}/src/github.com/quintilesims"
+export l0dir="${qimsdir}/layer0"
+
+
+################################
 # pyenv
 ################################
 
