@@ -39,7 +39,11 @@
     s = status
 
     # remove local branches that no longer exist remotely
-    sync = "!git fetch --all --prune && for b in $(git branch -vv | awk '/: gone]/{print $1}') ; do echo 'Deleting branch $b' ; git branch -d $b ; done"
+    sync = "!git fetch --all --prune && for b in $(git branch -vv | awk '/: gone]/{print $1}') ; do echo \"Deleting branch $b\" ; git branch -d $b ; done"
+
+    # as above, but also remove branches that are not fully merged
+    # - DANGEROUS -
+    fsync = "!git fetch --all --prune && for b in $(git branch -vv | awk '/: gone]/{print $1}') ; do echo \"Deleting branch $b\" ; git branch -D $b ; done"
 
     # Laura's
     throwitallaway = "!f(){ git reset --hard HEAD && git clean -fd; };f"
