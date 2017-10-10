@@ -6,6 +6,17 @@ filetype plugin indent on
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala,go let b:comment_leader = '// '
+autocmd FileType sh,ruby,python      let b:comment_leader = '# '
+autocmd FileType yaml,yml            let b:comment_leader = '# '
+autocmd FileType conf,fstab          let b:comment_leader = '# '
+autocmd FileType tex                 let b:comment_leader = '% '
+autocmd FileType mail                let b:comment_leader = '> '
+autocmd FileType vim                 let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
 " pymode options
 let g:pymode_lint_ignore = "E501,E0100"
 let g:pymode_python = "python"
