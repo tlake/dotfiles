@@ -48,6 +48,9 @@ alias gd='git diff'
 alias gb='git branch'
 alias gba='gb -a'
 
+# pretty branch display
+alias glb="git for-each-ref --format='%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p)    %(align:25,left)%(color:yellow)%(authorname)%(end) %(color:reset)%(refname:strip=3)' --sort=authordate refs/remotes"
+
 # fetching
 alias gf='git fetch'
 alias gfa='gf --all'
@@ -187,8 +190,67 @@ alias kb="keybase"
 ################################
 
 alias l0env="source ~/scripts/terminal_setup_docker.sh; source ~/scripts/terminal_setup_layer0.sh; export LAYER0_SKIP_VERSION_VERIFY='1'"
-alias l0_use_dev="sudo ln -sf /Users/tanner/go/src/github.com/quintilesims/layer0/cli/l0 /usr/local/bin/l0 && sudo ln -sf /Users/tanner/go/src/github.com/quintilesims/layer0/setup/l0-setup /usr/local/bin/l0-setup"
-alias l0_use_release="sudo ln -sf /Users/tanner/layer0/release/l0 /usr/local/bin/l0 && sudo ln -sf /Users/tanner/layer0/release/l0-setup /usr/local/bin/l0-setup"
+
+alias lv="l0-versioner"
+l0-versioner() {
+    if [ -z $1 ] || [ $1 == "-h" ] || [ $1 == "--help" ] || [ $1 == "help" ]; then
+        echo "USAGE: $FUNCNAME SUBCOMMAND or VERSION"
+        echo
+        echo "    SUBCOMMAND is one of"
+        echo "        '-h, --help, help'"
+        echo "        'ls, list'"
+        echo
+        echo "    VERSION is directory that exists in '~/layer0/versions/',"
+        echo "    or 'dev' to build the binaries from the local layer0 repo"
+        echo "    ($GOPATH/src/github.com/quintilesims/layer0/)."
+
+    elif [ $1 == "list" ] || [ $1 == "ls" ]; then
+        echo "Available versions:"
+        for v in dev $(ls $HOME/layer0/versions/) ; do \
+            echo "   $v" ; \
+        done
+
+    elif [ $1 == "dev" ]; then
+        echo "Building and linking layer0 'dev' version..."
+
+        make --directory $l0dir/cli build && \
+            ln -sf $GOPATH/src/github.com/quintilesims/layer0/cli/l0 /usr/local/bin/l0
+        echo "CLI linked."
+
+        make --directory $l0dir/setup build && \
+            ln -sf $GOPATH/src/github.com/quintilesims/layer0/setup/l0-setup /usr/local/bin/l0-setup
+        echo "Setup linked."
+
+        # link terraform plugin to PATH for terraform < v0.10.0,
+        # and link plugin to ~/.terraform.d/plugins/darwin_amd64 for terraform >= v0.10.0
+        make --directory $l0dir/plugins/terraform build && \
+            ln -sf $GOPATH/src/github.com/quintilesims/layer0/plugins/terraform/terraform-provider-layer0 /usr/local/bin/terraform-provider-layer0 && \
+            ln -sf $GOPATH/src/github.com/quintilesims/layer0/plugins/terraform/terraform-provider-layer0 /Users/tanner/.terraform.d/plugins/darwin_amd64/terraform-provider-layer0
+        echo "Terraform plugin linked."
+
+        echo "Operation complete!"
+
+    elif [ ! -d $HOME/layer0/versions/$1 ]; then
+        echo "No version '$1' found in '/Users/tanner/layer0/versions/'."
+
+    else
+        echo "Linking layer0 version $1..."
+
+        ln -sf $HOME/layer0/versions/$1/l0 /usr/local/bin/l0
+        echo "CLI linked."
+
+        ln -sf $HOME/layer0/versions/$1/l0-setup /usr/local/bin/l0-setup
+        echo "Setup linked."
+
+        # link terraform plugin to PATH for terravorm < v0.10.0,
+        # and link plugin to ~/.terraform.d/plugins/darwin_amd64 for terraform >= v0.10.0
+        ln -sf $HOME/layer0/versions/$1/terraform-provider-layer0 /usr/local/bin/terraform-provider-layer0 && \
+            ln -sf $HOME/layer0/versions/$1/terraform-provider-layer0 /Users/tanner/.terraform.d/plugins/darwin_amd64/terraform-provider-layer0
+        echo "Terraform plugin linked."
+
+        echo "Operation complete!"
+    fi
+}
 
 
 ################################
@@ -203,23 +265,23 @@ alias tmk="tmux kill-session -t"
 
 tminit() {
     if [ -z $1 ]; then
-        echo "${FUNCNAME}(): No args given."
+        echo "No args given."
         echo "USAGE: ${FUNCNAME} session-name number-of-sessions"
         echo "       (session-name required, number-of-sessions optional)"
     elif [ -z $2 ]; then
         tmux new-session -s $1 -d
         if [ $? -eq 0 ]; then
-            echo "${FUNCNAME}(): Created session '$1'"
+            echo "Created session '$1'"
         fi
     else
         tmux new-session -s "$1"1 -d
         if [ $? -eq 0 ]; then
-            echo "${FUNCNAME}(): Created session '${1}1'"
+            echo "Created session '${1}1'"
         fi
         for ((n=2;n<=$2;n++)); do
             tmux new-session -s "$1""$n" -t "$1"1 -d
             if [ $? -eq 0 ]; then
-                echo "${FUNCNAME}(): Created session '${1}${n}'"
+                echo "Created session '${1}${n}'"
             fi
         done
     fi
