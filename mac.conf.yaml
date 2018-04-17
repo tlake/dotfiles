@@ -13,6 +13,7 @@
     ~/.bash_env_vars_extension: "bash/bash_env_vars_extensions/mac"
     ~/.bash_profile: "bash/bash_profile"
     ~/.bashrc: "bash/bashrc"
+    ~/.bashrc_extension: "bash/bashrc_extensions/mac"
     ~/.bashrc_root: "bash/bashrc_root"
     ~/.elinks/elinks.conf: "elinks/elinks.conf"
     ~/.git-completion.bash: "git/.git-completion.bash"
