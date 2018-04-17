@@ -3,12 +3,18 @@ Host tannerjlake ec2-54-245-145-203.us-west-2.compute.amazonaws.com
     IdentityFile ~/.ssh/KeepHair.pem
     RemoteForward 52698 localhost:52698
     User ubuntu
+    ServerAliveInterval 30
 
-Host rpi 98.203.235.141
-    HostName 98.203.235.141
-    IdentityFile ~/.ssh/rpi_rsa
-    RemoteForward 52698 localhost:52698
-    User pi
+Host rpi_fileserver 10.0.0.177
+    HostName 10.0.0.177
+    IdentityFile ~/.ssh/rpi_fileserver_rsa
+    User tlake
+    Port 31415
+
+Host rpi_fileserver_public 24.18.225.9
+    HostName 24.18.225.9
+    IdentityFile ~/.ssh/rpi_fileserver_rsa
+    User tlake
     Port 31415
 
 Host sleeper 52.26.172.232
@@ -19,8 +25,11 @@ Host sleeper 52.26.172.232
 
 host github.com
     HostName github.com
-    IdentityFile ~/.ssh/tannerdotlakeatgmaildotcom_rsa
+    IdentityFile ~/.ssh/github_rsa
     User git
+
+host git.resin.io
+    IdentityFile ~/.ssh/github_rsa
 
 host gitlab.com
     HostName gitlab.com
