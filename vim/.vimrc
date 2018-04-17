@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 syntax on
 filetype plugin indent on
+au BufNewFile,BufRead *.mush,*.mux                    setf mush
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
