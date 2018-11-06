@@ -2,7 +2,7 @@
 # golang
 ################################
 
-export GOROOT='/usr/local/Cellar/go/1.9.2/libexec'
+export GOROOT='/usr/local/Cellar/go/1.11.1/libexec'
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
