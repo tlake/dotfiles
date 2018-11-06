@@ -301,3 +301,24 @@ alias pbvd="pbsend '('"
 alias pbvr="pbsend '^'"
 alias pbn="pbsend 'n'"
 
+
+################################
+# terraform
+################################
+
+alias tf="terraform"
+alias tfp="tf plan"
+alias tfa="tf apply"
+alias tfaa="tfa -auto-approve"
+alias tfd="tf destroy"
+alias tfdd="tfd -force"
+alias tff="tf fmt"
+
+
+################################
+# kubectl
+################################
+
+alias kc="kubectl"
+alias kcn="kc --namespace kube-system"
+
