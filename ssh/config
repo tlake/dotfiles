@@ -1,6 +1,5 @@
 Host *
     IdentitiesOnly=yes
-    PreferredAuthentications=publickey
     ServerAliveInterval 30
     LogLevel INFO
 
