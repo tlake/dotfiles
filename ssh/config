@@ -1,9 +1,14 @@
+Host *
+    IdentitiesOnly=yes
+    PreferredAuthentications=publickey
+    ServerAliveInterval 30
+    LogLevel INFO
+
 Host tannerjlake ec2-54-245-145-203.us-west-2.compute.amazonaws.com
     HostName ec2-54-245-145-203.us-west-2.compute.amazonaws.com
     IdentityFile ~/.ssh/KeepHair.pem
     RemoteForward 52698 localhost:52698
     User ubuntu
-    ServerAliveInterval 30
 
 Host rpi_fileserver 10.0.0.177
     HostName 10.0.0.177
@@ -34,5 +39,4 @@ host git.resin.io
 host gitlab.com
     HostName gitlab.com
     IdentityFile ~/.ssh/gitlabdotcom_rsa
-    IdentitiesOnly yes
     User git
