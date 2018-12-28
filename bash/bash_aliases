@@ -287,6 +287,8 @@ tminit() {
     fi
 }
 
+alias tms="tminit tl && tma tl"
+
 
 ################################
 # pianobar + tmux
