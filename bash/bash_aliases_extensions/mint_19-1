@@ -1,0 +1,28 @@
+################################
+# apt
+################################
+
+alias sa='sudo apt'
+alias sai='sa install'
+alias saud='sa update'
+alias saug='sa upgrade'
+alias sadug='sa dist-upgrade'
+alias sayug='sa upgrade --yes'
+alias saydug='sa dist-upgrade --yes'
+
+# the full update/upgrade suite:
+alias safu='saud ; sayug ; saydug'
+
+alias saac='sa autoclean'
+alias sac='sa clean'
+alias saar='sa autoremove'
+alias sayac='sa autoclean --yes'
+alias sayc='sa clean --yes'
+alias sayar='sa autoremove --yes'
+
+# the full clean-up suite:
+alias safc='sayac ; sayc ; sayar'
+
+# the full monty:
+alias safm='safu ; safc'
+
