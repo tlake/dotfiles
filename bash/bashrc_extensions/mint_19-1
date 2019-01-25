@@ -4,3 +4,11 @@
 
 setxkbmap -option caps:ctrl_modifier
 
+source <(kubectl completion bash)
+
+
+################################
+# WINE options
+################################
+
+export WINEPREFIXES=$HOME/.wine-prefixes
