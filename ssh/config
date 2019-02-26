@@ -9,6 +9,11 @@ Host tannerjlake ec2-54-245-145-203.us-west-2.compute.amazonaws.com
     RemoteForward 52698 localhost:52698
     User ubuntu
 
+Host github.com-tlake-artemicion
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-tlake-artemicion
+
 Host rpi_fileserver 10.0.0.177
     HostName 10.0.0.177
     IdentityFile ~/.ssh/rpi_fileserver_rsa
