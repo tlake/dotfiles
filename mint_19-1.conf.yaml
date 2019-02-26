@@ -74,6 +74,12 @@
         stdout: true
         stder: true
     -
+        description: "\nInstall tmux plugin manager...\n  "
+        command: git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+        stdin: true
+        stdout: true
+        stderr: true
+    -
         description: "\nInstall other programs...\n   "
         command: sudo make -C git/git-standup/ install
         stdin: true
