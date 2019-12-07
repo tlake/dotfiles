@@ -2,8 +2,8 @@
 # golang
 ################################
 
-export GOROOT='/usr/local/Cellar/go/1.11.1/libexec'
-export GOPATH=~/go
+export GOROOT='/usr/local/Cellar/go/1.13.1/libexec'
+export GOPATH=~/code/go
 export PATH=$PATH:$GOPATH/bin
 
 
@@ -23,3 +23,9 @@ export l0dir="${qimsdir}/layer0"
 
 export HOMEBREW_GITHUB_API_TOKEN="422610c1882913072f540f6e2f0b98477987c0c5"
 
+
+################################
+# homebrew
+################################
+
+export VIMRUNTIME="/usr/local/Cellar/vim/8.1.0950/share/vim/vim81/"

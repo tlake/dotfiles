@@ -2,3 +2,12 @@ export GPG_TTY=$(tty)
 
 # macOS bash autocompletion for kubectl
 source <(kubectl completion bash)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tanner/google-cloud-sdk/path.bash.inc' ]; then . '/Users/tanner/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tanner/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/tanner/google-cloud-sdk/completion.bash.inc'; fi
+
+# Use GNU sed as sed (instead of BSD sed)
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
