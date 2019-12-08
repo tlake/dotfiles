@@ -51,9 +51,3 @@
         stdin: true
         stdout: true
         stder: true
-    -
-        description: "\nRemap CAPS to CTRL...\n   "
-        command: setxkbmap -option caps:ctrl_modifier
-        stdin: true
-        stdout: true
-        stderr: true
