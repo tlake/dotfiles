@@ -41,7 +41,7 @@
         stderr: true
     -
         description: "\nInstall apt programs...\n   "
-        command: sudo apt install --yes elinks thefuck tmux tree silversearcher-ag vim-gnome xclip
+        command: sudo apt install --yes elinks thefuck tmux tree silversearcher-ag vim xclip
         stdin: true
         stdout: true
         stderr: true
