@@ -3,8 +3,8 @@ Host *
     ServerAliveInterval 30
     LogLevel INFO
 
- Host tannerjlake ec2-54-203-33-242.us-west-2.compute.amazonaws.com
-     HostName ec2-54-203-33-242.us-west-2.compute.amazonaws.com
+Host tannerjlake ec2-54-203-33-242.us-west-2.compute.amazonaws.com
+    HostName ec2-54-203-33-242.us-west-2.compute.amazonaws.com
     IdentityFile ~/.ssh/KeepHair.pem
     RemoteForward 52698 localhost:52698
     User ubuntu
