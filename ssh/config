@@ -17,7 +17,16 @@ Host github.com-tlake-artemicion
 Host minecraft minecraft.mechamoogle.com
     HostName minecraft.mechamoogle.com
     User tanner
-    ServerAliveInterval 30
+
+Host pi4-nas-local raspberry-pi-4-model-b-nas
+    HostName raspberry-pi-4-model-b-nas
+    IdentityFile ~/.ssh/pi4-ssh-key
+    User pi
+
+Host pi4-nas-web cloud.tlake.io
+    HostName cloud.tlake.io
+    IdentityFile ~/.ssh/pi4-ssh-key
+    User pi
 
 Host rpi_fileserver 10.0.0.177
     HostName 10.0.0.177
