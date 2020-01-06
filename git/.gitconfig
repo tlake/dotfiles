@@ -58,6 +58,7 @@
 [user]
     name = Tanner Lake
     email = tanner.lake@gmail.com
+    signingkey = SIGNING_KEY_HERE
 
 [core]
     editor=vim
@@ -67,3 +68,9 @@
 
 [push]
 	default = simple
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg
