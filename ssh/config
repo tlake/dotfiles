@@ -9,10 +9,10 @@ Host tannerjlake ec2-54-203-33-242.us-west-2.compute.amazonaws.com
     RemoteForward 52698 localhost:52698
     User ubuntu
 
-Host github.com-tlake-artemicion
+Host github.com-tlake-lazarus
     HostName github.com
     User git
-    IdentityFile ~/.ssh/github-tlake-artemicion
+    IdentityFile ~/.ssh/github-tlake-lazarus
 
 Host minecraft minecraft.mechamoogle.com
     HostName minecraft.mechamoogle.com
