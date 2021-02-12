@@ -1,0 +1,62 @@
+################
+# GLOBAL OPTIONS
+################
+
+Host *
+    IdentitiesOnly=yes
+    ServerAliveInterval 30
+    LogLevel INFO
+    IgnoreUnknown *
+
+
+################
+# GIT
+################
+
+Host github.com github-tlake-zuggtmoy
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-tlake-zuggtmoy-ecdsa
+    UseKeychain yes
+    AddKeysToAgent yes
+
+host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlabdotcom_rsa
+    User git
+
+
+################
+# LOCAL MACHINES
+################
+
+Host artemecion
+    HostName artemecion
+    User tanner
+    IdentityFile ~/.ssh/zuggtmoy_to_artemecion-ecdsa
+
+Host lazarus
+    HostName lazarus
+    IdentityFile ~/.ssh/zuggtmoy_to_lazarus-ecdsa
+    User  tlake
+
+Host mansionsyrup
+    HostName mansionsyrup
+    User tanner
+    IdentityFile ~/.ssh/zuggtmoy_to_mansionsyrup-ecdsa
+
+Host palacemechanical
+    HostName palacemechanical
+    User tanner
+    IdentityFile ~/.ssh/zuggtmoy_to_palacemechanical-ecdsa
+
+
+################
+# REMOTE LOCATIONS
+################
+
+Host tl-ec2 ec2-52-43-165-236.us-west-2.compute.amazonaws.com
+    HostName ec2-52-43-165-236.us-west-2.compute.amazonaws.com
+    IdentityFile ~/.ssh/KeepHair.pem
+    RemoteForward 52698 localhost:52698
+    User ec2-user
