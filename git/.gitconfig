@@ -64,10 +64,10 @@
     editor=vim
 
 [rerere]
-	enabled = true
+    enabled = true
 
 [push]
-	default = simple
+    default = simple
 
 [commit]
     gpgsign = true
