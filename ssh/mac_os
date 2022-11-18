@@ -13,12 +13,11 @@ Host *
 # GIT
 ################
 
-Host github.com github-tlake-zuggtmoy
+Host github.com github-tlake-flumph
     HostName github.com
+    IdentityFile ~/.ssh/github-tlake-flumph-ecdsa
     User git
-    IdentityFile ~/.ssh/github-tlake-zuggtmoy-ecdsa
-    UseKeychain yes
-    AddKeysToAgent yes
+
 
 host gitlab.com
     HostName gitlab.com
@@ -30,25 +29,41 @@ host gitlab.com
 # LOCAL MACHINES
 ################
 
-Host artemecion
-    HostName artemecion
+Host artemicion
+    HostName artemicion
     User tanner
-    IdentityFile ~/.ssh/zuggtmoy_to_artemecion-ecdsa
+    IdentityFile ~/.ssh/flumph-to-artemicion-ecdsa
+    ForwardX11 yes
+
+Host bolt
+    HostName bolt
+    User tlake
+    IdentityFile ~/.ssh/flumph-to-bolt-ecdsa
+    ForwardX11 yes
 
 Host lazarus
     HostName lazarus
-    IdentityFile ~/.ssh/zuggtmoy_to_lazarus-ecdsa
-    User  tlake
+    User tlake
+    IdentityFile ~/.ssh/flumph-to-lazarus-ecdsa
+    ForwardX11 yes
 
 Host mansionsyrup
     HostName mansionsyrup
-    User tanner
-    IdentityFile ~/.ssh/zuggtmoy_to_mansionsyrup-ecdsa
+    User pi
+    IdentityFile ~/.ssh/flumph-to-mansionsyrup-ecdsa
+    ForwardX11 yes
 
 Host palacemechanical
     HostName palacemechanical
-    User tanner
-    IdentityFile ~/.ssh/zuggtmoy_to_palacemechanical-ecdsa
+    User pi
+    IdentityFile ~/.ssh/flumph-to-palacemechanical-ecdsa
+    ForwardX11 yes
+
+Host wotc-mbp
+    HostName wotc-mbp
+    User laket
+    IdentityFile ~/.ssh/flumph-to-wotc-mbp-ecdsa
+    ForwardX11 yes
 
 
 ################
@@ -60,3 +75,4 @@ Host tl-ec2 ec2-52-43-165-236.us-west-2.compute.amazonaws.com
     IdentityFile ~/.ssh/KeepHair.pem
     RemoteForward 52698 localhost:52698
     User ec2-user
+
