@@ -16,6 +16,7 @@
     ~/.bashrc: "bash/bashrc"
     ~/.bashrc_extension: "bash/bashrc_extensions/mac"
     ~/.bashrc_root: "bash/bashrc_root"
+    ~/.config/nvim/: "nvim/*"
     ~/.elinks/elinks.conf: "elinks/elinks.conf"
     ~/.git-completion.bash: "git/.git-completion.bash"
     ~/.git-prompt.sh: "git/.git-prompt.sh"
@@ -53,7 +54,7 @@
 
   -
     description: "\nInstall brew programs...\n   "
-    command: brew install elinks go thefuck the_silver_searcher tmux tree vim zsh
+    command: brew install elinks go nvim thefuck the_silver_searcher tmux tree vim zsh
     stdin: true
     stdout: true
     stderr: true
