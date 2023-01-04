@@ -64,8 +64,14 @@
         stdout: true
         stderr: true
     -
+        description: "\nGet some neovim...\n   "
+        command: sudo add-apt-repository --update --yes ppa:neovim-ppa/stable && sudo apt install --yes neovim
+        stdin: true
+        stdout: true
+        stderr: true
+    -
         description: "\nInstall apt programs...\n   "
-        command: sudo apt install --yes cmatrix cowsay elinks neovim thefuck tmux tree silversearcher-ag vim-gnome xclip
+        command: sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim-gnome xclip
         stdin: true
         stdout: true
         stderr: true
