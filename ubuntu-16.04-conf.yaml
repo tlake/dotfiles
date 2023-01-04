@@ -1,8 +1,9 @@
 - defaults:
     link:
-        relink: true
         create: true
         force: true
+        glob: true
+        relink: true
 
 - clean: ['~']
 
@@ -18,6 +19,7 @@
     ~/.git-completion.bash: "git/.git-completion.bash"
     ~/.git-prompt.sh: "git/.git-prompt.sh"
     ~/.gitconfig: "git/.gitconfig"
+    ~/.config/nvim/: "nvim/*"
     ~/.ssh/config: "ssh/config"
     ~/.tmux.conf: "tmux/.tmux.conf"
     ~/.tmux-linux.conf: "tmux/.tmux-ubuntu-16-04.conf"
@@ -63,7 +65,7 @@
         stderr: true
     -
         description: "\nInstall apt programs...\n   "
-        command: sudo apt install --yes cmatrix cowsay elinks thefuck tmux tree silversearcher-ag vim-gnome xclip
+        command: sudo apt install --yes cmatrix cowsay elinks neovim thefuck tmux tree silversearcher-ag vim-gnome xclip
         stdin: true
         stdout: true
         stderr: true
