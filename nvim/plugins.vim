@@ -12,14 +12,9 @@ let vimPluginsDir = vimDir . '/plugged'
 " Install vim-plug if not found
 if empty(glob(vimPlugFile))
   let vimPlugUrl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  exec 'silent !curl -fLo ' . vimPlugFile . ' --create-dirs' . vimPlugUrl
+  exec 'silent !curl -fLo ' . vimPlugFile . ' --create-dirs ' . vimPlugUrl
+  autocmd VimEnter * PlugInstall
 endif
-
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
 
 
 " Install all the plugins
@@ -45,17 +40,23 @@ call plug#begin('~/.config/nvim/plugs')
   " Tabs
   Plug 'ap/vim-buftabline'
   
+  " neovim language things
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   " Telescope file finder / picker
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  
-  " neovim language things
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'neovim/nvim-lspconfig'
-  
+
   " Nicer LSP UI
   Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
+
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
