@@ -2,7 +2,7 @@
 
 
 " Set the color scheme
-colorscheme elflord
+colorscheme catppuccin-mocha
 
 " always show the status bar
 set laststatus=2
