@@ -116,6 +116,18 @@ endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 
+" Disable auto-newline when reaching a certain number of characters
+set textwidth=0
+
+
+" Don't hide backticks in files like Markdown
+set conceallevel=0
+
+
+" VimWiki settings
+let g:vimwiki_list = [{'path': '~/Nextcloud/', 'syntax': 'markdown'}]
+
+
 " code folding
 "set foldmethod=indent
 "set foldlevel=99
