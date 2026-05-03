@@ -7,76 +7,102 @@
 
 - clean: ['~']
 
-- link:
-    ~/.bash_aliases: "bash/bash_aliases"
-    ~/.bash_aliases_extension: "bash/bash_aliases_extensions/mac"
-    ~/.bash_env_vars: "bash/bash_env_vars"
-    ~/.bash_env_vars_extension: "bash/bash_env_vars_extensions/mac"
-    ~/.bash_profile: "bash/bash_profile"
-    ~/.bashrc: "bash/bashrc"
-    ~/.bashrc_extension: "bash/bashrc_extensions/mac"
-    ~/.bashrc_root: "bash/bashrc_root"
-    ~/.config/nvim/: "nvim/*"
-    ~/.elinks/elinks.conf: "elinks/elinks.conf"
-    ~/.git-completion.bash: "git/.git-completion.bash"
-    ~/.git-prompt.sh: "git/.git-prompt.sh"
-    ~/.gitconfig: "git/.gitconfig"
-    ~/.oh-my-zsh/oh-my-zsh.sh: "oh-my-zsh/oh-my-zsh.sh"
-    ~/.oh-my-zsh/custom/: "oh-my-zsh/custom/*"
-    ~/.ssh/config: "ssh/mac_os"
-    ~/.tmux.conf: "tmux/.tmux.conf"
-    ~/.tmux-osx.conf: "tmux/.tmux-osx.conf"
-    ~/.vimrc: "vim/.vimrc"
-    ~/.vim: "vim/.vim"
-    ~/.zshrc: "zsh/.zshrc"
-
 - shell:
-  -
-    description: "\nCreate vim undo file...\n   "
-    command: touch $HOME/.vim/undo
-    stdin: true
-    stdout: true
-    stder: true
-
-  -
-    description: "\nInstall submodules...\n   "
+  - description: "\nInstall submodules...\n   "
     command: git submodule update --init --recursive
     stdin: true
     stdout: true
     stder: true
 
-  -
-    description: "\nGet some homebrew...\n   "
-    command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" ; brew update
+- link:
+    ~/.git-completion.bash: "git/.git-completion.bash"
+    ~/.git-prompt.sh: "git/.git-prompt.sh"
+    ~/.gitconfig: "git/.gitconfig"
+    ~/.ssh/config: "ssh/mac_os"
+
+- shell:
+  - description: "\nGet some homebrew...\n   "
+    command: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew update
     stdin: true
     stdout: true
     stderr: true
 
-  -
-    description: "\nInstall brew programs...\n   "
-    command: brew install elinks go nvim thefuck the_silver_searcher tmux tree vim zsh
+  - description: "\nInstall zsh and oh-my-zsh...\n   "
+    command: |
+        brew install zsh
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     stdin: true
     stdout: true
     stderr: true
 
-  -
-    description: "\nInstall oh-my-zsh...\n   "
-    command: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- link:
+    ~/.zshrc: "zsh/.zshrc"
+    ~/.oh-my-zsh/oh-my-zsh.sh: "oh-my-zsh/oh-my-zsh.sh"
+    ~/.oh-my-zsh/custom/: "oh-my-zsh/custom/*"
+
+- shell:
+  - description: "\nSet up shell stuff...\n   "
+    command: |
+      cd ~/Library/Fonts
+      curl -fsSLO https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+      curl -fsSLO https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+      curl -fsSLO https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+      curl -fsSLO https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+      cd -
+      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+      mkdir -p ~/.config/catppuccin-iterm
+      cd ~/.config/catppuccin-iterm
+      curl -fsSLO https://raw.githubusercontent.com/catppuccin/iterm/refs/heads/main/colors/catppuccin-mocha.itermcolors
+      cd -
+
+- link:
+    ~/.p10k.zsh: "p10k/.p10k.zsh"
+
+- shell:
+  - description: "\nInstall brew programs...\n   "
+    command: brew install nvim thefuck the_silver_searcher tmux tree gsed gnupg pinentry-mac
     stdin: true
     stdout: true
     stderr: true
 
-  -
-    description: "\nConfigure some pyenv...\n   "
-    command: pyenv install --skip-existing 3.6.1; pyenv global 3.6.1
+  - description: "\nConfigure tmux...\n   "
+    command: |
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     stdin: true
     stdout: true
     stderr: true
 
-  -
-    description: "\nConfigure some golang...\n   "
-    command: mkdir -p $GOPATH
+- link:
+    ~/.config/nvim/: "nvim/*"
+    ~/.gnupg/gpg-agent.conf: "gnupg/gpg-agent.conf"
+    ~/.tmux.conf: "tmux/.tmux.conf"
+    ~/.tmux-osx.conf: "tmux/.tmux-osx.conf"
+
+- shell:
+  - description: "\nNotes...\n   "
+    command: |
+      echo "Some followup tasks after first run:"
+      echo
+      echo "The catppuccin-mocha iTerm colorscheme has been downloaded to"
+      echo "'~/.config/catppuccin-iterm/catppuccin-mocha.itermcolors'."
+      echo "You'll need to import and select the color preset in iTerm2's Profiles settings."
+      echo
+      echo "MesloLGS NF fonts should already be downloaded to ~/Library/Fonts/, but they still need to be"
+      echo "set in your terminal profile; something like Settings -> Profile -> Text -> Font for iTerm2."
+      echo
+      echo "Chances are you've got some gpg keys to bring over from an old machine."
+      echo "From the old machine:"
+      echo "  gpg --export --armor > allkeys.asc"
+      echo "  gpg --export-secret-keys --armor > allprivatekeys.asc"
+      echo "  gpg --export-ownertrust > trust.txt"
+      echo "Transfer to the new machine, then from the new machine:"
+      echo "  gpg --import ${PATH_TO_TRANSFER}/*.asc"
+      echo "  gpg --import-ownertrust ${PATH_TO_TRANSFER}/trust.txt"
+      echo
+      echo "You'll probably also want to update the signingkey in ~/.gitconfig. Get the key ID from:"
+      echo "  gpg --list-secret-keys --keyid-format long"
     stdin: true
     stdout: true
     stderr: true
-
